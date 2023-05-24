@@ -1,6 +1,7 @@
 import "./App.css";
 
 function Citas() {
+
     return (
             <div className="one-half column">
             <h2>Administra tus citas</h2>
