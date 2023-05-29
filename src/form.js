@@ -1,20 +1,23 @@
 import "./App.css";
+import { useState } from 'react'
 
-function Form({onTomarDatos}) {
+function Form({ onTomarDatos }) {
+  const [nombreMascota, setNombre] = useState('')
+  const [dueño, setDueño] = useState('')
+  const [fecha, setFecha] = useState('')
+  const [hora, setHora] = useState('')
+  const [sintomas, setSintomas] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const datos = new FormData(e.target)
     const NuevaCita = {
-      nombreMascota: datos.get("mascota"),
-      nombreDueño : datos.get("propietario"),
-      fecha : datos.get("fecha"),
-      hora : datos.get("hora"),
-      sintomas: datos.get("sintomas")
+      nombreMascota: nombreMascota,
+      nombreDueño: dueño,
+      fecha: fecha,
+      hora: hora,
+      sintomas: sintomas
     }
     onTomarDatos(NuevaCita)
-
-    console.log(NuevaCita)
   }
 
 
@@ -25,26 +28,28 @@ function Form({onTomarDatos}) {
         <form onSubmit={handleSubmit}>
           <label>Nombre Mascota</label>
           <input
-            id="nomMascota"
+            id="nombreMascota"
             type="text"
             name="mascota"
             className="u-full-width"
             placeholder="Nombre Mascota"
+            onChange={(e) => setNombre(e.target.value)}
           />
           <label>Nombre Dueño</label>
           <input
-            id="nomDueño"
+            id="nombreDueño"
             type="text"
             name="propietario"
             className="u-full-width"
             placeholder="Nombre dueño de la mascota"
+            onChange={(e) => setDueño(e.target.value)}
           />
           <label>Fecha</label>
-          <input type="date" id="fecha" name="fecha" className="u-full-width"/>
+          <input type="date" id="fecha" name="fecha" className="u-full-width" onChange={(e) => setFecha(e.target.value)} />
           <label>hora</label>
-          <input type="time" id="hora" name="hora" className="u-full-width" />
+          <input type="time" id="hora" name="hora" className="u-full-width" onChange={(e) => setHora(e.target.value)} />
           <label>Sintomas</label>
-          <textarea name="sintomas" id="sintomas" className="u-full-width"></textarea>
+          <textarea name="sintomas" id="sintomas" className="u-full-width" onChange={(e) => setSintomas(e.target.value)}></textarea>
           <button type="submit" className="u-full-width button-primary">
             Agregar Cita
           </button>
