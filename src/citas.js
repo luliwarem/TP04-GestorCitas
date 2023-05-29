@@ -1,8 +1,8 @@
 import "./App.css";
 
-function Citas(datosAMostrar) {
+function Citas({datosAMostrar, onEliminarCita}) {
   const handleEliminar = () =>{
-    
+    onEliminarCita()
   }
   console.log(datosAMostrar)
 

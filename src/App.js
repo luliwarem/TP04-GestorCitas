@@ -15,18 +15,16 @@ export default function App() {
     }
 
     const eliminarTarjeta = (id) => {
-        const nuevasTarjetas =tarjetas.filter((tarjeta)=>tarjeta.id !== id)
+        const nuevasTarjetas=tarjetas.filter((tarjeta)=>tarjeta.id !== id)
         setTarjetas(nuevasTarjetas)
     }
-
-
 
     return (<>
         <Form onTomarDatos={TomarDatos} />
 
         {tarjetas.map((tarjeta) => (
             <div className="one-half column">
-                <Citas key={tarjeta.id} onEliminar={()=>eliminarTarjeta(tarjeta.id)} datosAMostrar={tarjeta.contenido} />
+                <Citas key={tarjeta.id} onEliminarCita={()=>eliminarTarjeta(tarjeta.id)} datosAMostrar={tarjeta.contenido} />
             </div>
         ))}
     </>
