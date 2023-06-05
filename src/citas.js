@@ -1,24 +1,23 @@
-import "./App.css";
+import React from 'react';
 
-function Citas({datosAMostrar, onEliminarCita}) {
-  const handleEliminar = () =>{
-    onEliminarCita()
-  }
-  console.log(datosAMostrar)
+const Cita = ({ datosAMostrar, onEliminar }) => {
 
+  const handleEliminar = () => {
+    onEliminar();
+  };
+ 
   return (
-    <div className="one-half column">
-      <h2>Administra tus citas</h2>
-      <div className="cita">
-        <p>Mascota: <span>{datosAMostrar.nombreMascota}</span></p>
-        <p>Dueño: <span>{datosAMostrar.nombreDueño}</span></p>
-        <p>Fecha: <span>{datosAMostrar.fecha}</span></p>
-        <p>Hora: <span>{datosAMostrar.hora}</span></p>
-        <p>Sintomas: <span>{datosAMostrar.sintomas}</span></p>
-        <button className="button elimnar u-full-width" onClick={handleEliminar()}>Eliminar ×</button>
-      </div>
+    <div className="tarjeta" >
+      <p>Mascota: <span>{datosAMostrar.nombreMascota}</span></p>
+      <p>Dueño: <span>{datosAMostrar.nombreDueño}</span></p>
+      <p>Fecha: <span>{datosAMostrar.fecha}</span></p>
+      <p>Hora: <span>{datosAMostrar.hora}</span></p>
+      <p>Sintomas: <span>{datosAMostrar.sintomas}</span></p>
+      <button onClick={handleEliminar}>Eliminar</button>
     </div>
   );
-}
+};
 
-export default Citas;
+ 
+
+export default Cita;
