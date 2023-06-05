@@ -22,17 +22,14 @@ export default function App() {
     return (<>
 
         <div className="App container mt-5">
-            <h1 className="text-center mb-4 titulo">Aplicación de Tarjetas</h1>
             <Form onTomarDatos={TomarDatos} />
-            <div className="row justify-content-center mt-4">
                 {tarjetas.map((tarjeta) => (
                     <Citas
                         key={tarjeta.id}
                         datosAMostrar={tarjeta.contenido}
-                        onEliminarCita={() => eliminarTarjeta(tarjeta.id)}
+                        onEliminar={() => eliminarTarjeta(tarjeta.id)}
                     />
                 ))}
-            </div>
         </div>
     </>
     )
