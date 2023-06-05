@@ -6,12 +6,8 @@ import "./App.css";
 const Cita = ({ datosAMostrar, onEliminar }) => {
 
   const handleEliminar = () => {
-
     onEliminar();
-
   };
-
- 
 
   return (
     <div className="one-half column">
